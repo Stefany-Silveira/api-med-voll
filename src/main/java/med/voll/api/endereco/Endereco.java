@@ -1,10 +1,14 @@
 package med.voll.api.endereco;
 
 import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Embeddable
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Endereco {
 
     private String logradouro;
@@ -14,4 +18,14 @@ public class Endereco {
     private String complemento;
     private String cidade;
     private String uf;
+
+    public Endereco(DadosEndereco dados) {
+        this.logradouro = dados.logradouro();
+        this.bairro = dados.bairro();
+        this.cep = dados.cep();
+        this.numero = dados.numero();
+        this.complemento = dados.complemento();
+        this.cidade = dados.cidade();
+        this.uf = dados.uf();
+    }
 }
