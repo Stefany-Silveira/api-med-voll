@@ -1,14 +1,15 @@
-package med.voll.api.endereco;
+package med.voll.api.domain.endereco;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Embeddable
-@Data
-@AllArgsConstructor
+@Getter
 @NoArgsConstructor
+@AllArgsConstructor
+
 public class Endereco {
 
     private String logradouro;
@@ -23,13 +24,13 @@ public class Endereco {
         this.logradouro = dados.logradouro();
         this.bairro = dados.bairro();
         this.cep = dados.cep();
+        this.uf = dados.uf();
+        this.cidade = dados.cidade();
         this.numero = dados.numero();
         this.complemento = dados.complemento();
-        this.cidade = dados.cidade();
-        this.uf = dados.uf();
     }
 
-    public void atualizarInformacoesEndereco(DadosEndereco dados) {
+    public void atualizarInformacoes(DadosEndereco dados) {
         if (dados.logradouro() != null) {
             this.logradouro = dados.logradouro();
         }
@@ -39,17 +40,18 @@ public class Endereco {
         if (dados.cep() != null) {
             this.cep = dados.cep();
         }
+        if (dados.uf() != null) {
+            this.uf = dados.uf();
+        }
+        if (dados.cidade() != null) {
+            this.cidade = dados.cidade();
+        }
         if (dados.numero() != null) {
             this.numero = dados.numero();
         }
         if (dados.complemento() != null) {
             this.complemento = dados.complemento();
         }
-        if (dados.cidade() != null) {
-            this.cidade = dados.cidade();
-        }
-        if (dados.uf() != null) {
-            this.uf = dados.uf();
-        }
     }
+
 }
