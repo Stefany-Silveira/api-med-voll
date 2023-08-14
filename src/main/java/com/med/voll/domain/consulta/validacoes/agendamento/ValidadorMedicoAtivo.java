@@ -3,9 +3,13 @@ package com.med.voll.domain.consulta.validacoes.agendamento;
 import com.med.voll.controller.ValidacaoException;
 import com.med.voll.domain.consulta.DadosAgendamentoConsulta;
 import com.med.voll.domain.medico.MedicoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class ValidadorMedicoAtivo {
+@Component
+public class ValidadorMedicoAtivo implements ValidadorAgendamentoConsulta {
 
+    @Autowired
     private MedicoRepository repository;
 
     public void validar(DadosAgendamentoConsulta dados) {
